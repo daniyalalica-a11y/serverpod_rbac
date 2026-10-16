@@ -1,0 +1,11 @@
+class: RbacRolePermission
+table: serverpod_rbac_role_permission
+fields:
+  roleId: int, relation(parent=serverpod_rbac_role, onDelete=Cascade)
+  permissionId: int, relation(parent=serverpod_rbac_permission, onDelete=Cascade)
+  createdAt: DateTime, default=now
+
+indexes:
+  serverpod_rbac_role_perm_idx:
+    fields: roleId, permissionId
+    unique: true

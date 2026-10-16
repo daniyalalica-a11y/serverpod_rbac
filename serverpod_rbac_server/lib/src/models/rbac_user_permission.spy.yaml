@@ -1,0 +1,14 @@
+class: RbacUserPermission
+table: serverpod_rbac_user_permission
+fields:
+  userIdentifier: String
+  permissionId: int, relation(parent=serverpod_rbac_permission, onDelete=Cascade)
+  isGranted: bool, default=true
+  createdAt: DateTime, default=now
+
+indexes:
+  serverpod_rbac_user_perm_user_perm_idx:
+    fields: userIdentifier, permissionId
+    unique: true
+  serverpod_rbac_user_perm_user_idx:
+    fields: userIdentifier

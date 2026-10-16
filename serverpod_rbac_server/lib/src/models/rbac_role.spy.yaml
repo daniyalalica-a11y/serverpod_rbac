@@ -1,0 +1,8 @@
+class: RbacRole
+table: serverpod_rbac_role
+fields:
+  name: String, unique
+  description: String?
+  isSuperuser: bool, default=false
+  isSystemRole: bool, default=false
+  createdAt: DateTime, default=now

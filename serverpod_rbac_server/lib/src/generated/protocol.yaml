@@ -1,0 +1,31 @@
+rbacAdmin:
+  - createPermission:
+  - listPermissions:
+  - deletePermission:
+  - createRole:
+  - listRoles:
+  - deleteRole:
+  - assignPermissionsToRole:
+  - removePermissionsFromRole:
+  - getRolePermissions:
+  - assignRoleToUser:
+  - removeRoleFromUser:
+  - getUserRoles:
+  - grantPermissionToUser:
+  - revokePermissionFromUser:
+  - getUserPermissionsInfo:
+rbac:
+  - isSuperuser:
+  - getMyPermissions:
+  - hasPermission:
+  - hasAllPermissions:
+  - hasAnyPermission:
+  - hasRole:
+  - hasAnyRole:
+  - hasAllRoles:
+  - requirePermission:
+  - requireAllPermissions:
+  - requireAnyPermission:
+  - requireRole:
+  - requireAllRoles:
+  - requireSuperuser:

@@ -1,0 +1,17 @@
+class: RbacAuditLog
+table: serverpod_rbac_audit_log
+fields:
+  userIdentifier: String?
+  action: String
+  resource: String?
+  permissionCodename: String?
+  roleName: String?
+  allowed: bool
+  details: String?
+  createdAt: DateTime, default=now
+
+indexes:
+  serverpod_rbac_audit_user_idx:
+    fields: userIdentifier
+  serverpod_rbac_audit_created_idx:
+    fields: createdAt
