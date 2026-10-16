@@ -91,6 +91,11 @@ class RbacEndpoint extends Endpoint {
     await session.rbac.requireAllRoles(roles);
   }
 
+  /// Enforces that the current authenticated user has any [roles].
+  Future<void> requireAnyRole(Session session, List<String> roles) async {
+    await session.rbac.requireAnyRole(roles);
+  }
+
   /// Enforces that the current authenticated user is a superuser.
   Future<void> requireSuperuser(Session session) async {
     await session.rbac.requireSuperuser();

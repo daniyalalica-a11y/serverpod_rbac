@@ -617,6 +617,25 @@ class Endpoints extends _is.EndpointDispatch {
                     params['roles'],
                   ),
         ),
+        'requireAnyRole': _is.MethodConnector(
+          name: 'requireAnyRole',
+          params: {
+            'roles': _is.ParameterDescription(
+              name: 'roles',
+              type: _is.getType<List<String>>(),
+              nullable: false,
+            ),
+          },
+          call:
+              (
+                _is.Session session,
+                Map<String, dynamic> params,
+              ) async =>
+                  (endpoints['rbac'] as _iuygqbq6.RbacEndpoint).requireAnyRole(
+                    session,
+                    params['roles'],
+                  ),
+        ),
         'requireSuperuser': _is.MethodConnector(
           name: 'requireSuperuser',
           params: {},

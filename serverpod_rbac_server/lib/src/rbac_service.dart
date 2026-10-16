@@ -527,6 +527,27 @@ class RbacService {
     }
   }
 
+  /// Enforces that user has any of the specified roles.
+  Future<void> requireAnyRole(
+    Session session,
+    List<String> roleNames, {
+    String? userIdentifier,
+  }) async {
+    final uid = requireUserIdentifier(session, userIdentifier);
+    final allowed = await hasAnyRole(
+      session,
+      roleNames,
+      userIdentifier: uid,
+    );
+    if (!allowed) {
+      throw RbacException(
+        message: 'Role denied: required any of [${roleNames.join(", ")}]',
+        reason: RbacExceptionReason.roleDenied,
+        userIdentifier: uid,
+      );
+    }
+  }
+
   /// Enforces that the user has superuser privileges.
   Future<void> requireSuperuser(
     Session session, {

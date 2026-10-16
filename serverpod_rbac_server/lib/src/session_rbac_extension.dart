@@ -72,6 +72,10 @@ class SessionRbacContext {
   Future<void> requireAllRoles(List<String> roleNames) =>
       RbacService.instance.requireAllRoles(session, roleNames);
 
+  /// Enforces that the current session has any of [roleNames].
+  Future<void> requireAnyRole(List<String> roleNames) =>
+      RbacService.instance.requireAnyRole(session, roleNames);
+
   /// Enforces that the current session user has superuser privileges.
   Future<void> requireSuperuser() =>
       RbacService.instance.requireSuperuser(session);

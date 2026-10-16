@@ -306,6 +306,14 @@ class EndpointRbac extends _isc.EndpointRef {
         {'roles': roles},
       );
 
+  /// Enforces that the current authenticated user has any [roles].
+  _ida.Future<void> requireAnyRole(List<String> roles) =>
+      caller.callServerEndpoint<void>(
+        'serverpod_rbac.rbac',
+        'requireAnyRole',
+        {'roles': roles},
+      );
+
   /// Enforces that the current authenticated user is a superuser.
   _ida.Future<void> requireSuperuser() => caller.callServerEndpoint<void>(
     'serverpod_rbac.rbac',

@@ -28,4 +28,5 @@ rbac:
   - requireAnyPermission:
   - requireRole:
   - requireAllRoles:
+  - requireAnyRole:
   - requireSuperuser:
