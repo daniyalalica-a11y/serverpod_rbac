@@ -1,5 +1,7 @@
 name: serverpod_rbac_server
 description: Django-inspired role-based access control for Serverpod 4.0.4.
+version: 1.0.0
+repository: https://github.com/daniyalalica-a11y/serverpod_rbac
 
 environment:
   sdk: '^3.12.2'
@@ -7,7 +9,7 @@ environment:
 resolution: workspace
 
 dependencies:
-  serverpod: 4.0.4
+  serverpod: ^4.0.4
 
 dev_dependencies:
   lints: '>=3.0.0 <7.0.0'

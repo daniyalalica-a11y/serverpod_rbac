@@ -1,5 +1,7 @@
 name: serverpod_rbac_client
 description: Generated Serverpod 4.0.4 client protocol for serverpod_rbac.
+version: 1.0.0
+repository: https://github.com/daniyalalica-a11y/serverpod_rbac
 
 environment:
   sdk: '^3.12.2'
@@ -7,4 +9,4 @@ environment:
 resolution: workspace
 
 dependencies:
-  serverpod_client: 4.0.4
+  serverpod_client: ^4.0.4

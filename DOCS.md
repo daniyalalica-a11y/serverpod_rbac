@@ -67,7 +67,9 @@ Generated files under `lib/src/generated/` and the generated protocol files
 in the client package must not be edited by hand. Change the source model or
 endpoint and regenerate instead.
 
-The package versions are fixed at Serverpod 4.0.4 and Dart SDK `^3.12.2`.
+The `serverpod_rbac_server` and `serverpod_rbac_client` packages are released
+together at version `1.0.0`, target Serverpod 4.0.4, and require Dart SDK
+`^3.12.2`.
 The root `pubspec.yaml` is a workspace for the two packages, rather than a
 runnable application/server.
 
@@ -159,12 +161,24 @@ passes an `any` check only when the requested list is non-empty.
 
 ### Add the packages
 
-Add `serverpod_rbac_server` as a dependency of the host Serverpod server and
-`serverpod_rbac_client` as a dependency of clients that call the generated
-RBAC endpoints. When using this repository locally, point the dependencies to
-the respective package directories; in a larger workspace, use the package
-and module conventions already used by that application. Keep both packages
-on the same Serverpod-compatible version as the host application.
+Add the server package to the host Serverpod server:
+
+```powershell
+dart pub add serverpod_rbac_server
+```
+
+Add the companion client package to each Flutter/client project that calls
+the generated RBAC endpoints:
+
+```powershell
+dart pub add serverpod_rbac_client
+```
+
+These are separate packages because Pub dependencies belong to one project;
+adding a dependency to the server cannot modify a separate Flutter project's
+`pubspec.yaml`. The server package includes the module definition and its
+client package path so Serverpod can generate the module protocol and
+endpoints. Keep both packages at the same RBAC release version.
 
 Run `dart pub get` in the host workspace after changing its dependencies.
 The root workspace here already contains both packages.
@@ -180,9 +194,7 @@ modules:
     nickname: rbac
 ```
 
-Add `serverpod_rbac_client` to the client application's dependencies as well.
-When using local packages, use the package paths that match the host
-workspace. The package's own generator configuration is in
+The package's own generator configuration is in
 `serverpod_rbac_server/config/generator.yaml`; it declares the module's
 nickname and relative client package path.
 

@@ -20,6 +20,26 @@ application's own query and authorization rules.
 
 ## Quick start
 
+Install both module packages in their respective projects. From the Serverpod
+server:
+
+```powershell
+dart pub add serverpod_rbac_server
+```
+
+From the Flutter/client project:
+
+```powershell
+dart pub add serverpod_rbac_client
+```
+
+Then register the module in the server's `config/generator.yaml`, run
+`dart pub get` and `serverpod generate`, and apply the module migrations. See
+the [installation guide](./DOCS.md#installation-and-serverpod-integration)
+for the full setup. Pub dependencies are project-local, so adding the server
+package does not add the client package to a separate Flutter project's
+`pubspec.yaml`.
+
 ```dart
 // Register these definitions from a trusted startup/bootstrap task.
 await RbacSeeder.seed(
